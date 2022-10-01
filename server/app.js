@@ -15,29 +15,29 @@ app.get("/", async (req, res) => {
 });
 
 // Gets ALL database users
-// app.get("/api", async (req, res) => {
-//   try {
-//     let users = [];
+app.get("/api", async (req, res) => {
+  try {
+    let users = [];
 
-//     Users.forEach((user) => users.push(user));
+    Users.forEach((user) => users.push(user));
 
-//     // console.log(users);
+    // console.log(users);
 
-//     if (users.length < 1)
-//       return res.json({
-//         status: false,
-//         message: "No record yet!",
-//       });
+    if (users.length < 1)
+      return res.json({
+        status: false,
+        message: "No record yet!",
+      });
 
-//     res.send(users);
-//   } catch (error) {
-//     error &&
-//       res.json({
-//         status: false,
-//         message: "Error Ocurred",
-//       });
-//   }
-// });
+    res.send(users);
+  } catch (error) {
+    error &&
+      res.json({
+        status: false,
+        message: "Error Ocurred",
+      });
+  }
+});
 
 // Get selected database users based on search keyword
 app.get("/api/:detail", async (req, res) => {
