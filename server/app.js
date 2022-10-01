@@ -40,11 +40,11 @@ app.get("/", async (req, res) => {
 // });
 
 // Get selected database users based on search keyword
-app.get("/api/:id", async (req, res) => {
+app.get("/api/:detail", async (req, res) => {
   try {
     // console.log(req.params);
     let users = [];
-    let _detail = req.params.id.toLocaleLowerCase();
+    let _detail = req.params.detail.toLocaleLowerCase();
     let detail = _detail || false;
 
     if (detail) {
@@ -55,12 +55,10 @@ app.get("/api/:id", async (req, res) => {
           user.email.toLocaleLowerCase() === detail ||
           user.gender.toLocaleLowerCase() === detail
         ) {
-          //   console.log(user);
           users.push(user);
         }
       });
     }
-    // console.log(users);
 
     if (users.length < 1)
       return res.json({
